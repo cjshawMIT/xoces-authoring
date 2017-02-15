@@ -1,0 +1,99 @@
+<!-- HTML template for the navbar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/dashboard/">Xoces</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav xoces-navbar btn-group" role="group" aria-label="Xoces Outcome admin tools">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="fa fa-cogs"></i>
+                <span class="oces-label"> <%- bankName %></span>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <% _.each(banks, function (bank) { %>
+                <% var bankMap = JSON.stringify(bank); %>
+                <li class="bank-selector" data-obj="<%- bankMap %>"><a class=""><%- bank.displayName.text %></a></li>
+              <% }); %>
+            </ul>
+          </li>
+
+        <% if (active == 'departments') { %>
+            <li class="navbar-btn-wrapper" data-target="departments"><button class="btn btn-lg manage-departments xoces-navbar-btn active">Manage Departments</button></li>
+        <% } else if (hasDepartments) { %>
+            <li class="navbar-btn-wrapper" data-target="departments"><button class="btn btn-lg manage-departments xoces-navbar-btn">Manage Departments</button></li>
+        <% } else { %>
+            <li class="navbar-btn-wrapper hidden" data-target="departments"><button class="btn btn-lg manage-departments xoces-navbar-btn">Manage Departments</button></li>
+        <% } %>
+
+        <% if (active == 'subjects') { %>
+            <% if (bankId == 'mc3-objectivebank%3A2818%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn active">Manage Domains</button></li>
+            <% } else if (bankId == 'mc3-objectivebank%3A2819%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn active">Manage Courses</button></li>
+            <% } else { %>
+                <li class="navbar-btn-wrapper" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn active">Manage Subjects</button></li>
+            <% } %>
+        <% } else if (hasSubjects) { %>
+            <% if (bankId == 'mc3-objectivebank%3A2818%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn">Manage Domains</button></li>
+            <% } else if (bankId == 'mc3-objectivebank%3A2819%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn">Manage Courses</button></li>
+            <% } else { %>
+                <li class="navbar-btn-wrapper" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn">Manage Subjects</button></li>
+            <% } %>
+        <% } else { %>
+            <li class="navbar-btn-wrapper hidden" data-target="subjects"><button class="btn btn-lg manage-subjects xoces-navbar-btn">Manage Subjects</button></li>
+        <% } %>
+
+        <% if (active == 'modules') { %>
+            <% if (bankId == 'mc3-objectivebank%3A2818%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn active">Manage Topics</button></li>
+            <% } else if (bankId == 'mc3-objectivebank%3A2819%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn active">Manage Topics</button></li>
+            <% } else { %>
+                <li class="navbar-btn-wrapper" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn active">Manage Modules</button></li>
+            <% } %>
+        <% } else if (hasModules) { %>
+            <% if (bankId == 'mc3-objectivebank%3A2818%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn">Manage Topics</button></li>
+            <% } else if (bankId == 'mc3-objectivebank%3A2819%40MIT-OEIT') { %>
+                <li class="navbar-btn-wrapper" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn">Manage Topics</button></li>
+            <% } else { %>
+                <li class="navbar-btn-wrapper" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn">Manage Modules</button></li>
+            <% } %>
+        <% } else { %>
+            <li class="navbar-btn-wrapper hidden" data-target="modules"><button class="btn btn-lg manage-modules xoces-navbar-btn">Manage Modules</button></li>
+        <% } %>
+
+        <% if (active == 'outcomes') { %>
+            <li class="navbar-btn-wrapper" data-target="outcomes"><button class="btn btn-lg manage-objectives xoces-navbar-btn active">Manage Outcomes</button></li>
+        <% } else if (hasOutcomes) { %>
+            <li class="navbar-btn-wrapper" data-target="outcomes"><button class="btn btn-lg manage-objectives xoces-navbar-btn">Manage Outcomes</button></li>
+        <% } else { %>
+            <li class="navbar-btn-wrapper hidden" data-target="outcomes"><button class="btn btn-lg manage-objectives xoces-navbar-btn">Manage Outcomes</button></li>
+        <% } %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden processing-spinner">
+            <i aria-hidden="true" class="fa fa-spin fa-refresh">
+
+            </i>
+            <span class="sr-only">Processing...</span>
+        </li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

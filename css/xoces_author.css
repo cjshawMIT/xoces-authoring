@@ -1,0 +1,115 @@
+#app-container {
+    min-height: 80vh;
+}
+
+.xoces-navbar-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    margin-top: 2px;
+}
+
+.xoces-navbar-btn.active {
+    background-color: blue;
+    color: white;
+}
+
+.bank-selector {
+    cursor: pointer;
+}
+
+.parent-wrapper,
+.module-wrapper,
+.objective-wrapper {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.search-parents,
+.search-modules,
+.search-objectives {
+    flex: 1 1 100%;
+    margin-right: 15px;
+}
+
+.add-parent,
+.add-module,
+.add-objective {
+    flex: 1 1 100px;
+}
+
+.object-description {
+    min-height: 400px;
+}
+
+.single-line-table {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.single-line-table div {
+    flex: 1 1 200px;
+}
+
+.single-line-table span {
+    flex: 1 1 100%;
+}
+
+.parent-children,
+.module-children,
+.objective-prerequisites {
+    display: flex;
+    display: -webkit-flex;
+    margin-top: 50px;
+}
+
+.parent-children .modules {
+    margin-right: 15px;
+}
+
+.link-wrapper {
+    margin-bottom: 15px;
+}
+
+.parent-children .children,
+.parent-children .grandchildren,
+.parent-children .greatgrandchildren {
+    flex: 1 1 auto;
+}
+
+.parent-children .grandchildren,
+.parent-children .greatgrandchildren {
+    margin-left: 10px;
+}
+
+.parent-actions,
+.module-actions,
+.objective-actions {
+    margin-top: 15px;
+}
+
+
+.object-selector {
+    width:100% !important;
+}
+
+.remove-module,
+.remove-objective {
+    cursor: pointer;
+}
+
+.remove-object {
+    margin-left: 10px;
+}
+
+body.processing, body.processing * {
+    cursor: wait !important;
+}
+
+.clickable-object {
+    cursor: pointer;
+}
+
+.sub-panel {
+    margin-left: 5px;
+    margin-right: 5px;
+}

@@ -1,0 +1,23 @@
+<div>
+    <select class="item-selector object-selector">
+        <option></option>
+        <% _.each(items, function (item) { %>
+            <% var itemStr = JSON.stringify(item); %>
+            <option value="<%- item.id %>" data-raw-obj="<%- itemStr %>"><%- item.displayName.text %></option>
+        <% }); %>
+    </select>
+    <div class="item-details hidden">
+        <div class="display-name single-line-table">
+            <div><strong>Display Name: </strong></div>
+            <span></span>
+        </div>
+        <div class="description single-line-table">
+            <div><strong>Description: </strong></div>
+            <span></span>
+        </div>
+        <div class="id single-line-table">
+            <div><strong>ID: </strong></div>
+            <span></span>
+        </div>
+    </div>
+</div>

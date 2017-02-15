@@ -1,0 +1,18 @@
+<ul class="list-group <%- objectType %>-content">
+    <% if (objects.length > 0) { %>
+        <% _.each(objects, function (object) { %>
+            <% var objectStr = JSON.stringify(object); %>
+            <li class="list-group-item clickable-object <%- objectTypeSingular %>" data-raw-obj="<%- objectStr %>">
+                <span class="display-name" title="<%- object.description.text %>"><%- object.displayName.text %></span>
+                <span class="remove-<%- objectTypeSingular %> remove-object pull-right" title="De-link <%- objectName %>">
+                    <i aria-hidden="true" class="fa fa-unlink"></i>
+                    <span class="sr-only">Unlink the <%- objectName %></span>
+                </span>
+            </li>
+        <% }); %>
+    <% } else { %>
+        <li class="list-group-item none-found">
+            None found...
+        </li>
+    <% } %>
+</ul>

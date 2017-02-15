@@ -1,0 +1,128 @@
+<div class="parent-wrapper">
+    <div class="search-parents">
+        <select name="parent-selection" class="object-selector parent-selector">
+            <option></option>
+            <% _.each(parents, function (parent) { %>
+                <option value="<%- parent.id %>"><%- parent.displayName.text %></option>
+            <% }); %>
+        </select>
+    </div>
+    <div class="add-parent">
+        <button class="btn btn-success add-parent-btn">
+            <i aria-hidden="true" class="fa fa-plus-circle"></i>
+            Add new <%- context.parentName %>
+        </button>
+    </div>
+</div>
+<div class="parent-details hidden">
+    <div class="display-name single-line-table">
+        <div><strong>Display Name: </strong></div>
+        <span></span>
+    </div>
+    <div class="description single-line-table">
+        <div><strong>Description: </strong></div>
+        <span></span>
+    </div>
+    <div class="id single-line-table">
+        <div><strong>ID: </strong></div>
+        <span></span>
+    </div>
+    <div class="parent-actions">
+        <div class="edit-wrapper pull-left">
+            <button class="btn btn-primary edit-parent">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                Edit <%- context.parentName %>
+            </button>
+        </div>
+        <div class="delete-wrapper pull-right">
+            <button class="btn btn-danger delete-parent">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Delete <%- context.parentName %>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="parent-children hidden">
+    <% if (context.hasGreatgrandparents) { %>
+        <div class="greatgrandparents sub-panel">
+            <h4><%- context.greatgrandparentTitle %></h4>
+            <div class="link-greatgrandparent-wrapper link-wrapper hidden">
+                <button class="btn btn-success link-greatgrandparent">
+                    <i aria-hidden="true" class="fa fa-link"></i>
+                    <% if (context.greatgrandparentName[0] == 'o') { %>
+                        Add this <%- context.grandparentName %> to an <%- context.greatgrandparentName %>
+                    <% } else { %>
+                        Add this <%- context.grandparentName %> to a <%- context.greatgrandparentName %>
+                    <% } %>
+                </button>
+            </div>
+            <div id="grandparent-greatgrandparent-region">
+            </div>
+        </div>
+    <% } %>
+    <% if (context.hasGrandparents) { %>
+        <div class="grandparents sub-panel">
+            <h4><%- context.grandparentTitle %></h4>
+            <div class="link-grandparent-wrapper link-wrapper">
+                <button class="btn btn-success link-grandparent">
+                    <i aria-hidden="true" class="fa fa-link"></i>
+                    <% if (context.grandparentName[0] == 'o') { %>
+                        Add this <%- context.parentName %> to an <%- context.grandparentName %>
+                    <% } else { %>
+                        Add this <%- context.parentName %> to a <%- context.grandparentName %>
+                    <% } %>
+                </button>
+            </div>
+            <div id="parent-grandparent-region">
+            </div>
+        </div>
+    <% } %>
+    <div class="children sub-panel">
+        <h4><%- context.childTitle %></h4>
+        <div class="link-child-wrapper link-wrapper">
+            <button class="btn btn-success link-child">
+                <i aria-hidden="true" class="fa fa-link"></i>
+                <% if (context.childName[0] == 'o') { %>
+                    Add an <%- context.childName %> to this <%- context.parentName %>
+                <% } else { %>
+                    Add a <%- context.childName %> to this <%- context.parentName %>
+                <% } %>
+            </button>
+        </div>
+        <div id="parent-child-region"></div>
+    </div>
+    <% if (context.hasGrandchildren) { %>
+        <div class="grandchildren sub-panel">
+            <h4><%- context.grandchildrenTitle %></h4>
+            <div class="link-grandchild-wrapper link-wrapper hidden">
+                <button class="btn btn-success link-grandchild">
+                    <i aria-hidden="true" class="fa fa-link"></i>
+                    <% if (context.grandchildName[0] == 'o') { %>
+                        Add an <%- context.grandchildName %> to this <%- context.childName %>
+                    <% } else { %>
+                        Add a <%- context.grandchildName %> to this <%- context.childName %>
+                    <% } %>
+                </button>
+            </div>
+            <div id="child-grandchild-region">
+            </div>
+        </div>
+    <% } %>
+    <% if (context.hasGreatgrandchildren) { %>
+        <div class="greatgrandchildren sub-panel">
+            <h4><%- context.greatgrandchildrenTitle %></h4>
+            <div class="link-greatgrandchild-wrapper link-wrapper hidden">
+                <button class="btn btn-success link-greatgrandchild">
+                    <i aria-hidden="true" class="fa fa-link"></i>
+                    <% if (context.greatgrandchildName[0] == 'o') { %>
+                        Add an <%- context.greatgrandchildName %> to this <%- context.grandchildName %>
+                    <% } else { %>
+                        Add a <%- context.greatgrandchildName %> to this <%- context.grandchildName %>
+                    <% } %>
+                </button>
+            </div>
+            <div id="grandchild-greatgrandchild-region">
+            </div>
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,31 @@
+{
+  "name": "xoces-author",
+  "authors": [
+    "cjshaw <cjshaw@mit.edu>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.3",
+    "backbone.marionette": "marionette#~2.4.3",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "requirejs": "~2.1.20",
+    "bootstrap": "~3.3.5",
+    "jquery-ui": "jqueryui#~1.11.4",
+    "font-awesome": "fontawesome#~4.4.0",
+    "js-cookie": "~2.0.4"
+  }
+}
